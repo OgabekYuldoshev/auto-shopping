@@ -65,6 +65,7 @@ export default {
   background: linear-gradient(90deg, #4cb8c4 0%, #3cd3ad 100%);
   height: 450px;
   position: relative;
+  margin-bottom: 50px;
 }
 .mask {
   position: absolute;
