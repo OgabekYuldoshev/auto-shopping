@@ -7,7 +7,7 @@
     </div>
     <div v-if="type === 'row'" class="flex-cards-container">
       <div class="flex-one">
-        <div v-for="n in nums" :key="n" class="flex-card">
+        <div @click="route.push('/product/hello')" v-for="n in nums" :key="n" class="flex-card">
           <img src="@/assets/product.png" alt="" srcset="" />
           <div class="main-option">
             <div class="flex-title">

@@ -35,9 +35,39 @@
           </div>
           <div class="buttons">
             <button>ВЫБРАТЬ ПРОДАВЦА</button>
+            <button>ЗАПИСАТЬСЯ НА СЕРВИС</button>
+          </div>
+          <div class="options">
+            <div>
+              <h4>Комплектация</h4>
+              <p>объем: 5 л</p>
+            </div>
           </div>
         </div>
       </div>
+      <div class="control-buttons">
+        <button
+          :id="type === 'seller' ? 'active-button' : null"
+          @click="type = 'seller'"
+        >
+          Продавцы
+        </button>
+        <button
+          :id="type === 'comment' ? 'active-button' : null"
+          @click="type = 'comment'"
+        >
+          Отзывы
+        </button>
+        <button
+          :id="type === 'option' ? 'active-button' : null"
+          @click="type = 'option'"
+        >
+          Характеристики
+        </button>
+      </div>
+      <Seller v-show="type === 'seller'"/>
+      <Comments v-show="type === 'comment'"/>
+      <Options v-show="type === 'option'"/>
     </div>
     <Footer />
   </div>
@@ -45,19 +75,63 @@
 
 <script>
 import Footer from "@/containers/Footer.vue";
-// import CatalogCards from "@/components/CatalogCards.vue";
+import Seller from "@/components/Sellers.vue"
+import Comments from "@/components/Comments.vue"
+import Options from "@/components/Options.vue"
 import InnerImageZoom from "vue-inner-image-zoom";
 import StarRating from "vue-star-rating";
 export default {
   name: "Product",
-  components: { Footer, InnerImageZoom, StarRating },
+  components: { Footer, InnerImageZoom, StarRating, Seller, Comments, Options },
+  data() {
+    return {
+      type: "seller",
+    };
+  },
 };
 </script>
 
 <style scoped>
+.control-buttons button {
+  width: 30%;
+  padding: 10px 0px;
+  color: black;
+  font-weight: bolder;
+  border: 2px solid gray;
+  cursor: pointer;
+  background: transparent;
+  border-radius: 5px;
+}
+#active-button {
+  border-color: #e11c43;
+}
+.control-buttons {
+  margin: 20px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+.options {
+  display: flex;
+  flex-wrap: wrap;
+}
+.options div > h4 {
+  margin-bottom: 5px;
+}
+.buttons button:nth-child(2) {
+  width: 50%;
+  padding: 10px 0px;
+  color: black;
+  font-weight: bolder;
+  border: 2px solid #e11c43;
+  cursor: pointer;
+  background: transparent;
+  border-radius: 100px;
+}
 .buttons button:nth-child(1) {
   width: 50%;
-  padding: 6px 0px;
+  padding: 10px 0px;
   color: white;
   font-weight: bolder;
   border: none;
@@ -66,7 +140,8 @@ export default {
   border-radius: 100px;
 }
 .buttons {
-  margin: 10px 0px;
+  gap: 10px;
+  margin: 25px 0px;
   display: flex;
   align-items: center;
   justify-content: space-between;

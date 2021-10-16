@@ -11,7 +11,7 @@
         <img src="@/assets/logo.png" alt="Logo" />
         <ul class="links">
           <li v-for="link in links" :key="link">
-            <a class="link" href="#">{{ link }}</a>
+            <a class="link" href="/catalog">{{ link }}</a>
           </li>
         </ul>
         <div class="search">
