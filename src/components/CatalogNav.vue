@@ -3,7 +3,7 @@
     <ul>
       <li>Каталог</li>
       <li v-for="c in catalog" :key="c">
-        <a class="links" href="#">
+        <a class="links" href="/catalog">
           {{ c }}
         </a>
       </li>

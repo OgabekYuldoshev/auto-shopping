@@ -7,11 +7,16 @@
     </div>
     <div v-if="type === 'row'" class="flex-cards-container">
       <div class="flex-one">
-        <div @click="route.push('/product/hello')" v-for="n in nums" :key="n" class="flex-card">
-          <img src="@/assets/product.png" alt="" srcset="" />
+        <div v-for="n in nums" :key="n" class="flex-card">
+          <a href="/product/hello">
+            <img src="@/assets/product.png" alt="" srcset="" />
+          </a>
+
           <div class="main-option">
             <div class="flex-title">
-              <h3>Шины зимние</h3>
+              <a href="/product/hello">
+                <h3>Шины зимние</h3>
+              </a>
               <span>99 999 тг.</span>
             </div>
             <div class="flex-options">
@@ -34,23 +39,27 @@
       </div>
       <div class="flex-two">
         <p>Горящие предложения недели</p>
-        <div class="flexcards">
+        <a href="/product/hello" class="flexcards">
           <div v-for="n in nums" :key="n" class="flex-small-card">
-          <img src="@/assets/product.png" alt="" srcset="" />
+            <img src="@/assets/product.png" alt="" srcset="" />
             <div>
               <h5>Колодки тормозные дисковые</h5>
               <p>Toyota Camry</p>
               <span>99 999 тг.</span>
             </div>
           </div>
-        </div>
+        </a>
       </div>
     </div>
     <div v-if="type === 'column'" class="cards-container">
       <div v-for="n in nums" :key="n" class="card">
-        <img src="../assets/product.png" alt="" srcset="" />
+        <a href="/product/hello">
+          <img src="../assets/product.png" alt="" srcset="" />
+        </a>
         <div class="card-title">
-          <p>Колодки тормозные дисковые</p>
+          <a href="/product/hello">
+            <p>Колодки тормозные дисковые</p>
+          </a>
           <span>Toyota Camry</span>
         </div>
         <div class="card-action">
@@ -66,7 +75,7 @@
 
 <script>
 export default {
-  props:['type'],
+  props: ["type"],
   data() {
     return {
       nums: [1, 2, 3, 4, 5, 6],
@@ -76,30 +85,31 @@ export default {
 </script>
 
 <style scoped>
-
-.flex-small-card div > span{
+.flex-small-card div > span {
   font-weight: bold;
 }
 .flex-small-card div > p {
   font-size: 12px;
   padding: 5px 0px;
 }
-.flex-small-card img{
+.flex-small-card img {
   width: 50%;
   object-fit: cover;
 }
-.flex-small-card{
+.flex-small-card {
   padding: 5px;
   margin: 5px 0px;
   display: flex;
   gap: 5px;
-  background: #E9F7F7;
-  
+  background: #e9f7f7;
 }
-.flex-two > p{
+.flex-two > p {
   font-size: 14px;
   margin-bottom: 10px;
   font-weight: bold;
+}
+.flexcards {
+  color: black;
 }
 .flex-action span {
   font-weight: bold;
@@ -140,8 +150,8 @@ export default {
 .flex-card {
   display: flex;
   align-items: center;
-  background: #E9F7F7;
-  padding: 5px;
+  background: #e9f7f7;
+  padding: 10px 5px;
 }
 
 .flex-cards-container {
